@@ -1,0 +1,4 @@
+[submodule "compliance_checker/FM301_CC"]
+	path = compliance_checker/FM301_CC
+	url = https://github.com/chfer/FM301_CC.git
+	branch = enh/json-results-file
