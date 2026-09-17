@@ -1,0 +1,49 @@
+# TOML configuration for fm301_compliance_tracker
+
+#paths are relative to the project directory, e.g. /path/to/fm301_compliance_tracker
+
+[data]
+odim_h5.path = "data/odim_h5"
+odim_h5.pattern = ['*.h5', '*.hdf']
+fm301.path = "data/fm301"
+fm301.pattern = ['*.nc']
+validation.path = "data/validation"
+
+[[converter]]
+# converter based on the latest xradar library present in the python package index (pypi)
+name = "xradar-pip-latest"
+app = "converter/xradar-pip-latest/odimh5_to_cfradial2.py"
+options = ["--verbose"]
+# script to be executed before batch conversion to ensure that the latest xradar version is obtained from pypi
+setup = "converter/xradar-pip-latest/setup.sh"
+
+[[converter]]
+# converter based on the latest version of the xradar library on its github repo
+# can be obtained from the github repository : https://github.com/openradar/xradar.git
+name = "xradar-github-devel"
+app = "converter/xradar-github-devel/odimh5_to_cfradial2.py"
+options = ["--verbose"]
+# script to be executed before batch conversion to ensure that the latest version is obtained from github
+setup = "converter/xradar-github-devel/setup.sh"
+
+[[converter]]
+# converter based on the latest experimental version of the xradar library on its github repo
+# can be obtained from the github repository : https://github.com/chfer/xradar.git
+name = "xradar-github-experimental"
+app = "converter/xradar-github-experimental/odimh5_to_cfradial2.py"
+# {input_dir} is substituted at run time with the directory of the input ODIM-H5
+# file, so metadata.json is always read from the same station folder as the input.
+options = ["--verbose", "--metadata", "{input_dir}/metadata.json"]
+# script to be executed before batch conversion to ensure that the latest version is obtained from github
+setup = "converter/xradar-github-experimental/setup.sh"
+
+
+[compliance_checker]
+app = "compliance_checker/FM301_CC/fm301_cc.py"
+
+[logging]
+level = "INFO"
+file = "logs/fm301_compliance_tracker.log"
+max_size = 10485760  # 10 MB
+backup_count = 5  # number of backup log files to keep
+

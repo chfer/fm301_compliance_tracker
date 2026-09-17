@@ -1,0 +1,29 @@
+[project]
+name = "fm301-compliance-tracker"
+version = "0.1.0"
+description = "Track FM301 compliance of ODIM-H5 to CfRadial2 converters"
+readme = "README.md"
+authors = [
+    { name = "Christophe Férauge", email = "christophe.ferauge@meteo.oma.be" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "netCDF4",
+    "numpy",
+    "reportlab",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["compliance_checker/FM301_CC"]
+
+[project.scripts]
+fm301-compliance-tracker = "fm301_compliance_tracker:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"

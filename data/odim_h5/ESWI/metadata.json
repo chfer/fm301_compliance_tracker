@@ -1,0 +1,10 @@
+{
+    "global_attrs" : 
+        {
+            "platform_is_mobile" : "false",
+            "Conventions" : "CF-1.8, WMO CF-1.0",
+            "wmo__cf_profile" : "FM 301-2022",
+            "wmo__data_category" : "Radar data",
+            "wmo__data_policy" : "core"
+        }
+}
