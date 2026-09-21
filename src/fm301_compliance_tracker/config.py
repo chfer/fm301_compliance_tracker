@@ -161,4 +161,4 @@ def _integer(raw: dict[str, object], name: str) -> int:
 
 
 def _path(project_root: Path, raw: dict[str, object], name: str) -> Path:
-    return (project_root / _string(raw, name)).resolve()
+    return (project_root / Path(_string(raw, name)).expanduser()).resolve()

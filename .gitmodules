@@ -2,3 +2,6 @@
 	path = compliance_checker/FM301_CC
 	url = https://github.com/chfer/FM301_CC.git
 	branch = enh/json-results-file
+[submodule "converter/bom-radar-fm301"]
+	path = converter/bom-radar-fm301
+	url = https://github.com/chfer/bom-radar-fm301.git

@@ -38,6 +38,12 @@ options = ["--verbose", "--metadata", "{input_dir}/metadata.json"]
 setup = "converter/xradar-github-experimental/setup.sh"
 
 
+[[converter]]
+# BoM FM301 C++ converter, built and installed locally (see its README).
+name = "bom-radar-fm301"
+app = "~/.local/opt/bom-radar-fm301/bin/fm301-convert"
+options = ["--format-in=odim_h5", "--format-out=fm301"]
+
 [compliance_checker]
 app = "compliance_checker/FM301_CC/fm301_cc.py"
 
@@ -46,4 +52,3 @@ level = "INFO"
 file = "logs/fm301_compliance_tracker.log"
 max_size = 10485760  # 10 MB
 backup_count = 5  # number of backup log files to keep
-
